@@ -322,6 +322,7 @@ static UTEST_INLINE void *utest_realloc(void *const pointer, size_t new_size) {
 
   if (UTEST_NULL == new_pointer) {
     free(pointer);
+    abort(); /* clang-tidy complains; and indeed, we cannot continue */
   }
 
   return new_pointer;
